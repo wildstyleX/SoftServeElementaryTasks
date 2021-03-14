@@ -29,14 +29,14 @@ public class ChessBoard {
     }
 
 
-    public String getCurrentBoard() {
-        String returnedBoard = "";
+    public String getCurrentChessBoard() {
+        String returnedChessBoard = "";
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                returnedBoard += ((j + i) % 2 == 0) ? "*" : " ";
+                returnedChessBoard += ((j + i) % 2 == 0) ? "*" : " ";
             }
-            returnedBoard += "\n";
+            returnedChessBoard += "\n";
         }
-        return returnedBoard;
+        return returnedChessBoard;
     }
 }
