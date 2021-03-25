@@ -11,11 +11,12 @@ public class ChessBoardScanner {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Input " + value + ":");
             number = scanner.nextInt();
-            if (!validator.chessBoardValuesValidator(number)) {
+            if (!validator.isChessBoardValid(number)) {
+                System.err.println("Chess board's width and height must be 2 or more");
                 number = parseInt(value);
             }
         } catch (InputMismatchException ex) {
-            System.err.println("Value must be an integer");
+            System.err.println("The value must be an integer");
             number = parseInt(value);
         }
         return number;

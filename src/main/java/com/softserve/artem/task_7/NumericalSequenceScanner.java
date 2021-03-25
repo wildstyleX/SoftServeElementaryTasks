@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class NumericalSequenceScanner {
-   private final NumericalSequenceValidator validator;
+    private final NumericalSequenceValidator validator;
 
     public NumericalSequenceScanner() {
         validator = new NumericalSequenceValidator();
@@ -17,25 +17,27 @@ public class NumericalSequenceScanner {
             System.out.println("Input " + value + ":");
             number = scanner.nextInt();
         } catch (InputMismatchException ex) {
-            System.err.println("Value must be an integer");
+            System.err.println("Entered value must be integer");
+            number = parseInt(value);
+        }
+        return number;
+    }
+
+    public int parseLengthInt(String value) {
+        int number = parseInt(value);
+        if (!validator.isSequenceLengthValid(number)) {
+            System.err.println("Sequence length must be > 0");
             number = parseLengthInt(value);
         }
         return number;
     }
 
-        public int parseLengthInt(String value) {
-            int number = parseInt(value);
-            if (!validator.sequenceLengthValidator(number)) {
-                number = parseLengthInt(value);
-            }
-            return number;
+    public int parseMinimalSquareInt(String value){
+        int number = parseInt(value);
+        if (!validator.isMinimalSquareValid(number)) {
+            System.err.println("Minimal square must be >= 0");
+            number = parseMinimalSquareInt(value);
         }
-
-        public int parseMinimaSquareInt (String value){
-            int number = parseInt(value);
-            if (!validator.minimalSquareValidator(number)) {
-                number = parseMinimaSquareInt(value);
-            }
-            return number;
-        }
+        return number;
     }
+}
